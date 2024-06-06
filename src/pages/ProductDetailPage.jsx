@@ -11,7 +11,6 @@ const ProductDetailPage = () => {
     const fetchProduct = async () => {
       setLoading(true);
 
-      // Сначала ищем продукт в локальном хранилище
       const localProducts = JSON.parse(localStorage.getItem('localProducts')) || [];
       const localProduct = localProducts.find((p) => p.id === parseInt(id));
 
@@ -19,7 +18,6 @@ const ProductDetailPage = () => {
         setProduct(localProduct);
         setLoading(false);
       } else {
-        // Если продукт не найден в локальном хранилище, делаем запрос к API
         try {
           const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
           setProduct(response.data);

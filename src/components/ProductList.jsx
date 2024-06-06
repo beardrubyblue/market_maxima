@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 const ProductList = () => {
   const dispatch = useDispatch();
   const { items, status } = useSelector((state) => state.products);
-  const [tab, setTab] = useState('api'); // tab переключает отображение между продуктами из API и локальными
-  const [publishedOnly, setPublishedOnly] = useState(false); // фильтр для опубликованных продуктов
+  const [tab, setTab] = useState('api');
+  const [publishedOnly, setPublishedOnly] = useState(false);
   const [localProducts, setLocalProducts] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchProducts(20)); // Запросите 20 продуктов или другое нужное количество
+    dispatch(fetchProducts(8));
   }, [dispatch]);
 
   const handleDelete = (id, isLocal) => {
